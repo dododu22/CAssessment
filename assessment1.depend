@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1519673587 source:c:\users\doran\documents\c-citlabs\a01\assessment1\main.c
+	"pal.h"
+
+1519670548 c:\users\doran\documents\c-citlabs\a01\assessment1\pal.h
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<time.h>
+
+1519681311 source:c:\users\doran\documents\c-citlabs\a01\assessment1\pal.c
+	"pal.h"
+
