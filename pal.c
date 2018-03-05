@@ -153,18 +153,46 @@ void user_game_palindrome(int pal_num) {
     int* p=&k;
     int nm=0;
     print_status(a, p, nm);
-    while(win!=True){
-        printf("NEW MOVEMENT: Enter a valid command by keyword:\n Valid commands: a d w x\n");
-        char c=ask_for_command();
-        process_movement(a,&p,&nm,c);
-        if(is_pal(a)==True){
-            break;
+    boolean endGame=False;
+    while(endGame!=True){
+        while(win!=True){
+            printf("NEW MOVEMENT: Enter a valid command by keyword:\n Valid commands: a d w x\n");
+            char c=ask_for_command();
+            process_movement(a,&p,&nm,c);
+            if(is_pal(a)==True){
+                break;
+            }
+            for(int i=0;i<100;i++)
+                printf("\n");
+            print_status(a,p, nm);
+
         }
-        for(int i=0;i<100;i++)
-            printf("\n");
-        print_status(a,p, nm);
-
+        boolean resp=False;
+        while(resp!=True){
+        printf("New game? [Y/n]\n");
+        char endG=my_get_char();
+            if(endG=='Y' || endG=='y'){
+                for(int i=0;i<6;i++)
+                    a[i]=gen_num(0,9);
+                    k=0;
+                    nm=0;
+                    print_status(a, p, nm);
+                    resp=True;
+            }
+            else if(endG=='N' || endG=='n'){
+                endGame=True;
+                resp=True;
+            }
+            else{
+                    int res=rand()%3;
+                    if(res==0)
+                        printf("Oh! I didn't expected that...\n");
+                    else if(res==1)
+                        printf("let's try again...\n");
+                    else
+                        printf("please be more specific!\n");
+            }
+        }
     }
-
 }
 
